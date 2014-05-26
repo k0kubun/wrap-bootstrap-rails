@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Wrap::Bootstrap::Rails::VERSION
   spec.authors       = ["Takashi Kokubun"]
   spec.email         = ["takashikkbn@gmail.com"]
-  spec.summary       = %q{Gem generator for Wrap Bootstrap design templates}
-  spec.description   = %q{Gem generator for Wrap Bootstrap design templates}
+  spec.summary       = %q{Rails plugin generator for Wrap Bootstrap design templates}
+  spec.description   = %q{Rails plugin generator for Wrap Bootstrap design templates}
   spec.homepage      = "https://github.com/k0kubun/wrap-bootstrap-rails"
   spec.license       = "MIT"
 

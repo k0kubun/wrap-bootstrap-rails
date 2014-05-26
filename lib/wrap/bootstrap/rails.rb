@@ -97,7 +97,8 @@ class Wrap::Bootstrap::Rails
 
       ## Usage
 
-      Add this line to your application's Gemfile:
+      1. You have to purchase a license to use this design template at [WrapBootstrap](https://wrapbootstrap.com/)
+      2. Add this line to your application's Gemfile:
 
       ```ruby
       gem '#{gem_name}', git: 'git://github.com/#{gem_name}/#{gem_name}.git'
