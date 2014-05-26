@@ -1,28 +1,31 @@
 # Wrap::Bootstrap::Rails
 
-TODO: Write a gem description
+Rails plugin generator for Wrap Bootstrap design templates
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-    gem 'wrap-bootstrap-rails'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install wrap-bootstrap-rails
+```bash
+$ gem install wrap-bootstrap-rails
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Purchase a design template at [Wrap Bootstrap](https://wrapbootstrap.com/)
+2. Download the design template and unzip downloaded zip.
+3. Execute following command
+
+```bash
+$ wrapbr UNZIPPED_DIR GEM_NAME # ex) wrapbr . ace
+```
+
+## Caution
+
+This gem is not recommending redistribution of design templates which need to pay.  
+Only for your personal usage.
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/wrap-bootstrap-rails/fork )
+1. Fork it ( http://github.com/k0kubun/wrap-bootstrap-rails/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
