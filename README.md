@@ -20,7 +20,7 @@ $ wrapbr UNZIPPED_DIR GEM_NAME # ex) wrapbr . ace
 
 ## Caution
 
-This gem is not recommending redistribution of design templates which need to pay.  
+**This gem is NOT recommending redistribution of design templates which need to pay.**  
 Only for your personal usage.
 
 ## Contributing
