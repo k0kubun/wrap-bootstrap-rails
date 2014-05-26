@@ -10,8 +10,5 @@ if ARGV.size < 2
   exit
 end
 
-wrap_dir = File.expand_path(ARGV[0])
-gem_name = ARGV[1]
-
 wrap_bootstrap_rails = Wrap::Bootstrap::Rails.new(ARGV[0], ARGV[1])
 wrap_bootstrap_rails.create_gem!
