@@ -1,4 +1,5 @@
 require "wrap/bootstrap/rails/version"
+require "unindent"
 
 class Wrap::Bootstrap::Rails
   FG_RED = 31
@@ -13,9 +14,36 @@ class Wrap::Bootstrap::Rails
     check_bundler_existence
 
     system("bundle", "gem", gem_name)
+    enginize_gem
+    add_railtie_dependency
   end
 
   private
+
+  # Define Rails::Engine to export vendor/assets directory to rails app.
+  def enginize_gem
+    source = <<-EOS.unindent
+      require "#{gem_name}/version"
+
+      module #{gem_name.capitalize}
+        module Rails
+          class Engine < ::Rails::Engine
+          end
+        end
+      end
+    EOS
+
+    gem_path = File.join(gem_dir, "lib", "#{gem_name}.rb")
+    File.write(gem_path, source)
+  end
+
+  def add_railtie_dependency
+    gemspec_path = File.join(gem_dir, "#{gem_name}.gemspec")
+
+    lines = File.read(gemspec_path).split("\n")
+    lines.insert(-2, "  spec.add_dependency 'railties', '~> 3.1'")
+    File.write(gemspec_path, lines.join("\n"))
+  end
 
   def check_gem_dir_existence
     if File.exists?(gem_dir)
