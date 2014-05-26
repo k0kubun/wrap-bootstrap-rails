@@ -1,6 +1,8 @@
 # Wrap::Bootstrap::Rails
 
-Rails plugin generator for Wrap Bootstrap design templates
+Rails plugin generator for Wrap Bootstrap design templates  
+This gem automatically distributes necessary assets to proper paths,  
+and fix their reference links for asset pipeline.
 
 ## Installation
 
