@@ -57,15 +57,15 @@ class Wrap::Bootstrap::Rails
 
   def copy_assets
     asset_src_path = File.join(wrap_dir, "assets")
-    FileUtils.mkdir_p(vendor_path)
-    FileUtils.cp_r(asset_src_path, vendor_path)
+    FileUtils.mkdir_p(app_path)
+    FileUtils.cp_r(asset_src_path, app_path)
 
     rename_directories
     separate_namespace
   end
 
   def fix_asset_references
-    Find.find(vendor_path) do |path|
+    Find.find(app_path) do |path|
       next unless path.match(/\.css$/)
       update_url_for_asset_pipeline(path)
     end
@@ -145,9 +145,9 @@ class Wrap::Bootstrap::Rails
 
   def rename_directories
     DIRNAME_MAP.each do |org_name, new_name|
-      org_path = File.join(vendor_path, "assets", org_name)
+      org_path = File.join(app_path, "assets", org_name)
       if File.exists?(org_path)
-        new_path = File.join(vendor_path, "assets", new_name)
+        new_path = File.join(app_path, "assets", new_name)
         FileUtils.mv(org_path, new_path)
       end
     end
@@ -156,7 +156,7 @@ class Wrap::Bootstrap::Rails
   def separate_namespace
     working_dir = File.join("/tmp", "wrap-bootstrap-rails", gem_name)
 
-    vendor_assets_path = File.join(vendor_path, "assets")
+    vendor_assets_path = File.join(app_path, "assets")
     Dir.foreach(vendor_assets_path) do |dir|
       next if dir.match(/^\./)
       target_dir = File.join(vendor_assets_path, dir)
@@ -195,8 +195,8 @@ class Wrap::Bootstrap::Rails
     exit
   end
 
-  def vendor_path
-    @vendor_path ||= File.join(gem_dir, "vendor")
+  def app_path
+    @app_path ||= File.join(gem_dir, "app")
   end
 
   def gem_name
